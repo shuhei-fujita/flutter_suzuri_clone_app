@@ -50,11 +50,39 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("SUZURI"),
+    return MaterialApp(
+      home: DefaultTabController(
+        length: 3,
+        child: Scaffold(
+          appBar: AppBar(
+//            bottom: TabBar(
+//              tabs: <Widget>[
+//                Tab(icon: Icon(Icons.home)),
+//                Tab(icon: Icon(Icons.shopping_cart)),
+//                Tab(icon: Icon(Icons.person)),
+//              ],
+//            ),
+          ),
+          body: _productsList(context),
+          bottomNavigationBar: BottomNavigationBar(
+            currentIndex: 0,
+            items: [
+              BottomNavigationBarItem(
+                icon: Icon(Icons.home),
+                title: Text("Home"),
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.local_grocery_store),
+                title: Text("Store"),
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.person),
+                title: Text("User"),
+              ),
+            ],
+          ),
+        ),
       ),
-      body: _productsList(context),
     );
   }
 
@@ -68,24 +96,35 @@ class MyHomePage extends StatelessWidget {
         // GridViewはウィジェットをグリッドで表示してくれるウィジェット
         // iOS UIKitで言うところの UICollectionView
         // GridView.builderというfactory(カスタムコンストラクタ)で初期化する
-        child: GridView.builder(
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              // グリッド横方向のウィジェット数
-              crossAxisCount: 2,
-              crossAxisSpacing: 16,
-              mainAxisSpacing: 16,
-              // グリッド表示するウィジェットの縦横比
-              childAspectRatio: 0.7,
+        child: Column(
+          children: <Widget>[
+            GridView.builder(
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  // グリッド横方向のウィジェット数
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 16,
+                  mainAxisSpacing: 16,
+                  // グリッド表示するウィジェットの縦横比
+                  childAspectRatio: 0.7,
+                ),
+                // グリッドに表示したいウィジェットの数
+                itemCount: products.length,
+                // itemBuilderはGridViewのインデックス毎に表示したいウィジェットを返すデリゲート
+                // context, indexを引数にとり、ウィジェットを返す関数を指定してやる
+                // itemContの回数だけ呼ばれる、この例では6回
+                itemBuilder: (context, index) {
+                  // とりあえずグレーのコンテナを表示してみる
+                  return ProductCard(product: products[index],);
+                }
             ),
-            // グリッドに表示したいウィジェットの数
-            itemCount: products.length,
-            // itemBuilderはGridViewのインデックス毎に表示したいウィジェットを返すデリゲート
-            // context, indexを引数にとり、ウィジェットを返す関数を指定してやる
-            // itemContの回数だけ呼ばれる、この例では6回
-            itemBuilder: (context, index) {
-              // とりあえずグレーのコンテナを表示してみる
-              return ProductCard(product: products[index],);
-            }
+//            TabBar(
+//              tabs: <Widget>[
+//                Tab(icon: Icon(Icons.home)),
+//                Tab(icon: Icon(Icons.shopping_cart)),
+//                Tab(icon: Icon(Icons.person)),
+//              ],
+//            ),
+          ],
         ),
       );
     } else {
