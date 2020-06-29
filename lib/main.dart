@@ -54,33 +54,25 @@ class MyHomePage extends StatelessWidget {
       home: DefaultTabController(
         length: 3,
         child: Scaffold(
-          appBar: AppBar(
-//            bottom: TabBar(
-//              tabs: <Widget>[
-//                Tab(icon: Icon(Icons.home)),
-//                Tab(icon: Icon(Icons.shopping_cart)),
-//                Tab(icon: Icon(Icons.person)),
-//              ],
-//            ),
-          ),
+          appBar: AppBar(),
           body: _productsList(context),
-          bottomNavigationBar: BottomNavigationBar(
-            currentIndex: 0,
-            items: [
-              BottomNavigationBarItem(
-                icon: Icon(Icons.home),
-                title: Text("Home"),
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.local_grocery_store),
-                title: Text("Store"),
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.person),
-                title: Text("User"),
-              ),
-            ],
-          ),
+//          bottomNavigationBar: BottomNavigationBar(
+//            currentIndex: 0,
+//            items: [
+//              BottomNavigationBarItem(
+//                icon: Icon(Icons.home),
+//                title: Text("ホーム"),
+//              ),
+//              BottomNavigationBarItem(
+//                icon: Icon(Icons.local_grocery_store),
+//                title: Text("カート"),
+//              ),
+//              BottomNavigationBarItem(
+//                icon: Icon(Icons.person),
+//                title: Text("あなた"),
+//              ),
+//            ],
+//          ),
         ),
       ),
     );
@@ -117,13 +109,6 @@ class MyHomePage extends StatelessWidget {
                   return ProductCard(product: products[index],);
                 }
             ),
-//            TabBar(
-//              tabs: <Widget>[
-//                Tab(icon: Icon(Icons.home)),
-//                Tab(icon: Icon(Icons.shopping_cart)),
-//                Tab(icon: Icon(Icons.person)),
-//              ],
-//            ),
           ],
         ),
       );

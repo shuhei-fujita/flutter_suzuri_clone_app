@@ -15,28 +15,30 @@ class ProductDetail extends StatelessWidget {
       appBar: AppBar(
         title: Text("商品詳細"),
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: <Widget>[
-            Center(
-              child: Image.network(product.sampleImageUrl),
-            ),
-            Text(
-              product.title,
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            Text(product.item.humanizeName),
-            Text("${product.price.toString()}円"),
-            Text("作った人：　${product.material.user.name}"),
+      body: Container(),
 
-            product.material.description.isEmpty
-                ? Container()
-                : _descriptionsection(context, product),
-          ],
-        ),
-      ),
+//      SingleChildScrollView(
+//        child: Column(
+//          children: <Widget>[
+//            Center(
+//              child: Image.network(product.sampleImageUrl),
+//            ),
+//            Text(
+//              product.title,
+//              style: TextStyle(
+//                fontWeight: FontWeight.bold,
+//              ),
+//            ),
+//            Text(product.item.humanizeName),
+//            Text("${product.price.toString()}円"),
+//            Text("作った人：　${product.material.user.name}"),
+//
+//            product.material.description.isEmpty
+//                ? Container()
+//                : _descriptionsection(context, product),
+//          ],
+//        ),
+//      ),
     );
   }
 
