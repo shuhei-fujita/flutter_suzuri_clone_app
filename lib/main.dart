@@ -53,6 +53,23 @@ class MyHomePage extends StatelessWidget {
         title: const Text("SUZURI"),
       ),
       body: _productsList(context),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: 0,
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            title: Text("ホーム"),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.local_grocery_store),
+            title: Text("カート"),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            title: Text("あなた"),
+          ),
+        ],
+      ),
     );
   }
 

@@ -12,6 +12,9 @@ class ProductDetail extends StatelessWidget {
     final Product product = ModalRoute.of(context).settings.arguments;
 
     return Scaffold(
+      appBar: AppBar(
+        title: const Text("商品詳細"),
+      ),
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
