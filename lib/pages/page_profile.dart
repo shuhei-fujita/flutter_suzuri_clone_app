@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-class TabStore extends StatelessWidget {
+class PageProfile extends StatelessWidget {
 
-  static const routeName = "/tabStore";
+  static const routeName = "/tabProfile";
 
   @override
   Widget build(BuildContext context) {

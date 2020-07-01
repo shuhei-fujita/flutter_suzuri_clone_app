@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hands_on/main.dart';
 import 'package:flutter_hands_on/components/product_card.dart';
-import 'package:flutter_hands_on/pages/tab_store.dart';
-import 'package:flutter_hands_on/pages/tab_profile.dart';
+import 'package:flutter_hands_on/pages/page_store.dart';
+import 'package:flutter_hands_on/pages/page_profile.dart';
 
 class _TabComponent extends State {
 
@@ -11,8 +11,8 @@ class _TabComponent extends State {
   Widget callPage(int currentIndex) {
     switch(currentIndex) {
       case 0: return ProductCard();
-      case 1: return TabStore();
-      case 2: return TabProfile();
+      case 1: return PageStore();
+      case 2: return PageProfile();
 
       break;
       default: return ProductCard();
