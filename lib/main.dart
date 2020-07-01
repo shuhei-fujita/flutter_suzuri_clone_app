@@ -39,13 +39,19 @@ class MyApp extends StatelessWidget {
       home: MyHomePage(),
 
       routes: {
-        ProductDetail.routeName: (context) => ProductDetail(),
+        ProductDetail.routeName: (context) => ProductDetail()
       },
     );
   }
 }
 
 class MyHomePage extends StatelessWidget {
+  int _selectedIndex = 0;
+
+  void _onItemTapped(int index) {
+
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,21 +60,23 @@ class MyHomePage extends StatelessWidget {
       ),
       body: _productsList(context),
       bottomNavigationBar: BottomNavigationBar(
-        currentIndex: 0,
-        items: [
+        items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
-            title: Text("ホーム"),
+            title: Text('Home'),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.local_grocery_store),
-            title: Text("カート"),
+            icon: Icon(Icons.business),
+            title: Text('Business'),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            title: Text("あなた"),
+            icon: Icon(Icons.school),
+            title: Text('School'),
           ),
         ],
+        currentIndex: _selectedIndex,
+        selectedItemColor: Colors.amber[800],
+        onTap: _onItemTapped,
       ),
     );
   }
