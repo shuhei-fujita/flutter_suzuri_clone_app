@@ -14,5 +14,4 @@ class PageStore extends StatelessWidget {
       ),
     );
   }
-
 }

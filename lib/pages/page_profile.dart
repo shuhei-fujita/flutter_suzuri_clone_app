@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 class PageProfile extends StatelessWidget {
-
   static const routeName = "/tabProfile";
 
   @override
@@ -9,10 +8,9 @@ class PageProfile extends StatelessWidget {
     return Scaffold(
       body: Container(
         child: Center(
-          child: Text("カートが空っぽみたい"),
+          child: Text("profile"),
         ),
       ),
     );
   }
-
 }

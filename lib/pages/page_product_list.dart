@@ -2,9 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hands_on/components/product_card.dart';
 
 class PageProductList extends StatelessWidget {
-  // 画面を遷移するために必要なウィジェットの名前を定義する
-  static const routeName = "/productDetail";
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
