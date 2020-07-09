@@ -79,6 +79,16 @@ class MyHomePage extends StatelessWidget {
             icon: Icon(Icons.person),
           ),
         ],
+        onTap: (index) async {
+          Provider.of<TabBarStore>(context, listen: false)
+              .updateCurrentIndex(index);
+          if (controller.hasClients) {
+            controller.animateToPage(index,
+                duration: Duration(milliseconds: 400),
+                curve: Curves.easeInOutSine);
+          }
+        },
+        currentIndex: store.currentIndex,
       ),
     );
   }
