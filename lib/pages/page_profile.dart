@@ -27,23 +27,53 @@ class PageProfile extends StatelessWidget {
   Widget build(BuildContext context) {
 
     getCurrentUser();
+    final user = _auth.currentUser();
 
-    return Scaffold(
-      body: Center(
-        child: ButtonTheme(
-          minWidth: 300,
-          child: RaisedButton(
-              child: Text("ログイン"),
-              color: Colors.blueAccent,
-              textColor: Colors.white,
-              onPressed: (){
-                Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => PageUserSignIn()),
-                );
-              }
+    if(user != null) {
+      print("ログインしていません");
+      return Scaffold(
+        body: Center(
+          child: ButtonTheme(
+            minWidth: 300,
+            child: RaisedButton(
+                child: Text("ログイン"),
+                color: Colors.blueAccent,
+                textColor: Colors.white,
+                onPressed: (){
+                  Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => PageUserSignIn()),
+                  );
+                }
+            ),
           ),
         ),
-      ),
-    );
+      );
+    } else {
+      print("ログインしています");
+      return Scaffold(
+        body: Center(
+          child: Text("ログインしています"),
+        ),
+      );
+    }
+
+//    return Scaffold(
+//      body:
+//      Center(
+//        child: ButtonTheme(
+//          minWidth: 300,
+//          child: RaisedButton(
+//              child: Text("ログイン"),
+//              color: Colors.blueAccent,
+//              textColor: Colors.white,
+//              onPressed: (){
+//                Navigator.push(context,
+//                  MaterialPageRoute(builder: (context) => PageUserSignIn()),
+//                );
+//              }
+//          ),
+//        ),
+//      ),
+//    );
   }
 }

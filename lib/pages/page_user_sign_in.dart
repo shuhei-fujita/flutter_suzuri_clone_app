@@ -83,9 +83,9 @@ class PageUserSignIn extends StatelessWidget {
                           progressDialog.hide();
 
                           Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => MyApp()),
+//                            MaterialPageRoute(builder: (context) => MyApp()),
 //                        MaterialPageRoute(builder: (context) => MyHomePage()),
-//                        MaterialPageRoute(builder: (context) => PageProfile()),
+                        MaterialPageRoute(builder: (context) => PageProfile()),
                           );
                         }
                       } catch (e) {
