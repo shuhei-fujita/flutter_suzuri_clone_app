@@ -30,29 +30,15 @@ class PageProfile extends StatelessWidget {
 
     return Scaffold(
       body: Center(
-        child: Column(
-          children: <Widget>[
-            RaisedButton(
-                child: Text("ログイン"),
-                color: Colors.blue,
-                textColor: Colors.white,
-                onPressed: (){
-                  Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => PageUserSignIn()),
-                  );
-                }
-            ),
-            RaisedButton(
-                child: Text("アカウントを登録"),
-                color: Colors.grey,
-                textColor: Colors.white,
-                onPressed: (){
-                  Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => PageUserSignUp()),
-                  );
-                }
-            ),
-          ],
+        child: RaisedButton(
+            child: Text("ログイン"),
+            color: Colors.blue,
+            textColor: Colors.white,
+            onPressed: (){
+              Navigator.push(context,
+                MaterialPageRoute(builder: (context) => PageUserSignIn()),
+              );
+            }
         ),
       ),
     );

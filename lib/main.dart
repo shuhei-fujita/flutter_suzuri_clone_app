@@ -51,9 +51,6 @@ class MyHomePage extends StatelessWidget {
     final store = Provider.of<TabBarStore>(context);
     final controller = PageController();
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("SUZURI"),
-      ),
       body: PageView(
         children: <Widget>[
           PageProductList(),

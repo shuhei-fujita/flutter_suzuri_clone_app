@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hands_on/main.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_hands_on/pages/page_profile.dart';
 
@@ -10,58 +11,73 @@ class PageUserSignUp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return MaterialApp(home: new
+        Scaffold(
       appBar: AppBar(
-        title: const Text("ログイン"),
+        title: const Text(
+          "ユーザー登録",
+          style: TextStyle(color: Colors.black),
+        ),
+        backgroundColor: Colors.white,
+        leading:
+        IconButton(
+            icon: Icon(Icons.arrow_back),
+            color: Colors.black,
+            onPressed: () {
+              Navigator.push(context,
+                MaterialPageRoute(builder: (context) => MyApp()),
+              );
+            }
+        ),
       ),
-      body: Center(
-        child: Column(
-          children: <Widget>[
-            TextField(
-              keyboardType: TextInputType.emailAddress,
-              onChanged: (value) {
-                email = value;
-              },
-              decoration: InputDecoration(
-                labelText: "Email",
+        body: Center(
+          child: Column(
+            children: <Widget>[
+              TextField(
+                keyboardType: TextInputType.emailAddress,
+                onChanged: (value) {
+                  email = value;
+                },
+                decoration: InputDecoration(
+                  labelText: "Email",
+                ),
               ),
-            ),
-            TextField(
-              keyboardType: TextInputType.visiblePassword,
-              obscureText: true,
-              onChanged: (value) {
-                password = value;
-              },
-              decoration: InputDecoration(
-                labelText: "Password",
+              TextField(
+                keyboardType: TextInputType.visiblePassword,
+                obscureText: true,
+                onChanged: (value) {
+                  password = value;
+                },
+                decoration: InputDecoration(
+                  labelText: "Password",
+                ),
               ),
-            ),
-            RaisedButton(
-                child: Text("アカウントを登録"),
-                color: Colors.grey,
-                textColor: Colors.white,
-                onPressed: () async {
-                  print("email: " + email);
-                  print("password: " + password);
+              RaisedButton(
+                  child: Text("ユーザー登録"),
+                  color: Colors.grey,
+                  textColor: Colors.white,
+                  onPressed: () async {
+                    print("email: " + email);
+                    print("password: " + password);
 
-                  try {
-                    final newUser = await _auth.createUserWithEmailAndPassword(
-                        email: email, password: password);
+                    try {
+                      final newUser = await _auth.createUserWithEmailAndPassword(
+                          email: email, password: password);
 
-                    if(newUser != null) {
-                      Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => PageProfile()),
-                      );
+                      if(newUser != null) {
+                        Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => PageProfile()),
+                        );
+                      }
+                    } catch (e) {
+                      print(e);
                     }
-                  } catch (e) {
-                    print(e);
-                  }
 
 //                  Navigator.push(context,
 //                    MaterialPageRoute(builder: (context) => PageLogin()),
 //                  );
-                }
-            ),
+                  }
+              ),
 //            Text("または"),
 //            RaisedButton(
 //                child: Text("Twitterでログイン"),
@@ -73,9 +89,10 @@ class PageUserSignUp extends StatelessWidget {
 //                  );
 //                }
 //            ),
-          ],
+            ],
+          ),
         ),
-      ),
-    );
+    ),
+      );
   }
 }
