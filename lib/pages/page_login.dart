@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_hands_on/pages/page_login.dart';
 
-class PageProfile extends StatelessWidget {
+class PageLogin extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text("ログイン"),
+      ),
       body: Center(
         child: RaisedButton(
-            child: Text("ログイン"),
+            child: Text("Twitterでログイン"),
             color: Colors.blue,
             textColor: Colors.white,
             onPressed: (){
