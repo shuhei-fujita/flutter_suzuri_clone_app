@@ -31,78 +31,82 @@ class PageUserSignIn extends StatelessWidget {
               }
           ),
       ),
-      body: Center(
-        child: Column(
-          children: <Widget>[
-            TextField(
-              keyboardType: TextInputType.emailAddress,
-              onChanged: (value) {
-                email = value;
-              },
-              decoration: InputDecoration(
-                labelText: "Email",
-              ),
-            ),
-            TextField(
-              keyboardType: TextInputType.visiblePassword,
-              obscureText: true,
-              onChanged: (value) {
-                password = value;
-              },
-              decoration: InputDecoration(
-                labelText: "Password",
-              ),
-            ),
-            ButtonTheme(
-              minWidth: 300,
-              child: RaisedButton(
-                  child: Text("ログイン"),
-                  color: Colors.blue,
-                  textColor: Colors.white,
-                  onPressed: () async {
-                    print("email: " + email);
-                    print("password: " + password);
-
-                    try {
-                      final user = await _auth.signInWithEmailAndPassword(
-                          email: email, password: password);
-
-                      if(user != null) {
-                        Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => MyApp()),
-//                        MaterialPageRoute(builder: (context) => MyHomePage()),
-//                        MaterialPageRoute(builder: (context) => PageProfile()),
-                        );
-                      }
-                    } catch (e) {
-                      print(e);
-                    }
-                  }
-              ),
-            ),
-            Text("または"),
-            FlatButton(
-              child: Center(
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: <Widget>[
-                    Icon(Icons.person_add),
-                    Text(
-                      "　ユーザー登録",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ],
+      body: Card(
+        margin: EdgeInsets.all(30.0),
+        child: Padding(
+          padding: const EdgeInsets.all(30.0),
+          child: Column(
+            children: <Widget>[
+              TextField(
+                keyboardType: TextInputType.emailAddress,
+                onChanged: (value) {
+                  email = value;
+                },
+                decoration: InputDecoration(
+                  labelText: "Email",
                 ),
               ),
-              onPressed: () {
-                Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => PageUserSignUp()),
-                );
-              },
-            ),
-          ],
+              TextField(
+                keyboardType: TextInputType.visiblePassword,
+                obscureText: true,
+                onChanged: (value) {
+                  password = value;
+                },
+                decoration: InputDecoration(
+                  labelText: "Password",
+                ),
+              ),
+              ButtonTheme(
+                minWidth: 300,
+                child: RaisedButton(
+                    child: Text("ログイン"),
+                    color: Colors.blue,
+                    textColor: Colors.white,
+                    onPressed: () async {
+                      print("email: " + email);
+                      print("password: " + password);
+
+                      try {
+                        final user = await _auth.signInWithEmailAndPassword(
+                            email: email, password: password);
+
+                        if(user != null) {
+                          Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => MyApp()),
+//                        MaterialPageRoute(builder: (context) => MyHomePage()),
+//                        MaterialPageRoute(builder: (context) => PageProfile()),
+                          );
+                        }
+                      } catch (e) {
+                        print(e);
+                      }
+                    }
+                ),
+              ),
+              Text("または"),
+              FlatButton(
+                child: Center(
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      Icon(Icons.person_add),
+                      Text(
+                        "　ユーザー登録",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                onPressed: () {
+                  Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => PageUserSignUp()),
+                  );
+                },
+              ),
+            ],
+          ),
         ),
       ),
     ),

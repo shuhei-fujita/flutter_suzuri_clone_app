@@ -72,7 +72,7 @@ class MyHomePage extends StatelessWidget {
             icon: Icon(Icons.home),
           ),
           BottomNavigationBarItem(
-            title: Text('profile'),
+            title: Text('あなた'),
             icon: Icon(Icons.person),
           ),
         ],
