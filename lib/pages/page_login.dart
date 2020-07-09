@@ -22,17 +22,17 @@ class PageLogin extends StatelessWidget {
                   );
                 }
             ),
-            Text("または"),
-            RaisedButton(
-                child: Text("Twitterでログイン"),
-                color: Colors.blue,
-                textColor: Colors.white,
-                onPressed: (){
-                  Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => PageLogin()),
-                  );
-                }
-            ),
+//            Text("または"),
+//            RaisedButton(
+//                child: Text("Twitterでログイン"),
+//                color: Colors.blue,
+//                textColor: Colors.white,
+//                onPressed: (){
+//                  Navigator.push(context,
+//                    MaterialPageRoute(builder: (context) => PageLogin()),
+//                  );
+//                }
+//            ),
           ],
         ),
       ),
