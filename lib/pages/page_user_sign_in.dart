@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_hands_on/main.dart';
 import 'package:flutter_hands_on/pages/page_profile.dart';
 import 'package:flutter_hands_on/pages/page_user_sign_up.dart';
+import 'package:progress_dialog/progress_dialog.dart';
 
 class PageUserSignIn extends StatelessWidget {
 
@@ -10,8 +11,13 @@ class PageUserSignIn extends StatelessWidget {
   String email;
   String password;
 
+  ProgressDialog progressDialog;
+
   @override
   Widget build(BuildContext context) {
+
+    progressDialog = ProgressDialog(context, type: ProgressDialogType.Normal);
+
     return MaterialApp(home: new
     Scaffold(
       appBar: AppBar(
@@ -66,11 +72,16 @@ class PageUserSignIn extends StatelessWidget {
                       print("email: " + email);
                       print("password: " + password);
 
+                      progressDialog.show();
+
                       try {
                         final user = await _auth.signInWithEmailAndPassword(
                             email: email, password: password);
 
                         if(user != null) {
+
+                          progressDialog.hide();
+
                           Navigator.push(context,
                             MaterialPageRoute(builder: (context) => MyApp()),
 //                        MaterialPageRoute(builder: (context) => MyHomePage()),

@@ -3,6 +3,7 @@ import 'package:flutter_hands_on/main.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_hands_on/pages/page_profile.dart';
 import 'package:flutter_hands_on/pages/page_user_sign_in.dart';
+import 'package:modal_progress_hud/modal_progress_hud.dart';
 
 class PageUserSignUp extends StatelessWidget {
 
