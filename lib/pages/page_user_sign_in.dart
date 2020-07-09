@@ -49,7 +49,7 @@ class PageUserSignIn extends StatelessWidget {
                   email = value;
                 },
                 decoration: InputDecoration(
-                  labelText: "Email",
+                  labelText: "メール",
                 ),
               ),
               TextField(
@@ -59,7 +59,7 @@ class PageUserSignIn extends StatelessWidget {
                   password = value;
                 },
                 decoration: InputDecoration(
-                  labelText: "Password",
+                  labelText: "パスワード",
                 ),
               ),
               ButtonTheme(

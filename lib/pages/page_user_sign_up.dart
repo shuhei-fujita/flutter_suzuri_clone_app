@@ -4,12 +4,16 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_hands_on/pages/page_profile.dart';
 import 'package:flutter_hands_on/pages/page_user_sign_in.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class PageUserSignUp extends StatelessWidget {
 
   final _auth = FirebaseAuth.instance;
+  String username;
   String email;
   String password;
+
+  final _firestore = Firestore.instance;
 
   @override
   Widget build(BuildContext context) {
@@ -39,12 +43,21 @@ class PageUserSignUp extends StatelessWidget {
             child: Column(
               children: <Widget>[
                 TextField(
+                  keyboardType: TextInputType.text,
+                  onChanged: (value) {
+                    username = value;
+                  },
+                  decoration: InputDecoration(
+                    labelText: "ユーザー名",
+                  ),
+                ),
+                TextField(
                   keyboardType: TextInputType.emailAddress,
                   onChanged: (value) {
                     email = value;
                   },
                   decoration: InputDecoration(
-                    labelText: "Email",
+                    labelText: "メール",
                   ),
                 ),
                 TextField(
@@ -54,7 +67,7 @@ class PageUserSignUp extends StatelessWidget {
                     password = value;
                   },
                   decoration: InputDecoration(
-                    labelText: "Password",
+                    labelText: "パスワード",
                   ),
                 ),
                 RaisedButton(
@@ -62,12 +75,23 @@ class PageUserSignUp extends StatelessWidget {
                     color: Colors.blueAccent,
                     textColor: Colors.white,
                     onPressed: () async {
+                      print("email: " + username);
                       print("email: " + email);
                       print("password: " + password);
 
                       try {
                         final newUser = await _auth.createUserWithEmailAndPassword(
-                            email: email, password: password);
+                            username: username,
+                            email: email,
+                            password: password
+                        );
+
+                        _firestore.collection("user")
+                            .add({
+                          "email": email,
+                          "password": password,
+                          "username": username,
+                        });
 
                         if(newUser != null) {
                           Navigator.push(context,
