@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_hands_on/pages/page_login.dart';
+import 'package:flutter_hands_on/pages/page_user_sign_in.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_hands_on/pages/page_user_sign_up.dart';
 
 class PageProfile extends StatelessWidget {
 
@@ -29,15 +30,29 @@ class PageProfile extends StatelessWidget {
 
     return Scaffold(
       body: Center(
-        child: RaisedButton(
-            child: Text("ログイン"),
-            color: Colors.blue,
-            textColor: Colors.white,
-            onPressed: (){
-              Navigator.push(context,
-                MaterialPageRoute(builder: (context) => PageLogin()),
-              );
-            }
+        child: Column(
+          children: <Widget>[
+            RaisedButton(
+                child: Text("ログイン"),
+                color: Colors.blue,
+                textColor: Colors.white,
+                onPressed: (){
+                  Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => PageUserSignIn()),
+                  );
+                }
+            ),
+            RaisedButton(
+                child: Text("アカウントを登録"),
+                color: Colors.grey,
+                textColor: Colors.white,
+                onPressed: (){
+                  Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => PageUserSignUp()),
+                  );
+                }
+            ),
+          ],
         ),
       ),
     );

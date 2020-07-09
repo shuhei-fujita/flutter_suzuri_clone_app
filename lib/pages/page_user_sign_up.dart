@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_hands_on/pages/page_profile.dart';
 
-class PageLogin extends StatelessWidget {
+class PageUserSignUp extends StatelessWidget {
 
   final _auth = FirebaseAuth.instance;
   String email;
@@ -37,8 +37,8 @@ class PageLogin extends StatelessWidget {
               ),
             ),
             RaisedButton(
-                child: Text("ログイン"),
-                color: Colors.blue,
+                child: Text("アカウントを登録"),
+                color: Colors.grey,
                 textColor: Colors.white,
                 onPressed: () async {
                   print("email: " + email);
