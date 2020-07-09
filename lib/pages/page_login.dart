@@ -8,15 +8,32 @@ class PageLogin extends StatelessWidget {
         title: const Text("ログイン"),
       ),
       body: Center(
-        child: RaisedButton(
-            child: Text("Twitterでログイン"),
-            color: Colors.blue,
-            textColor: Colors.white,
-            onPressed: (){
-              Navigator.push(context,
-                MaterialPageRoute(builder: (context) => PageLogin()),
-              );
-            }
+        child: Column(
+          children: <Widget>[
+            TextField(),
+            TextField(),
+            RaisedButton(
+                child: Text("ログイン"),
+                color: Colors.blue,
+                textColor: Colors.white,
+                onPressed: (){
+                  Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => PageLogin()),
+                  );
+                }
+            ),
+            Text("または"),
+            RaisedButton(
+                child: Text("Twitterでログイン"),
+                color: Colors.blue,
+                textColor: Colors.white,
+                onPressed: (){
+                  Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => PageLogin()),
+                  );
+                }
+            ),
+          ],
         ),
       ),
     );
