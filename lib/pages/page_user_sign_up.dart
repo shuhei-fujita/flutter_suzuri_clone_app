@@ -5,6 +5,7 @@ import 'package:flutter_hands_on/pages/page_profile.dart';
 import 'package:flutter_hands_on/pages/page_user_sign_in.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:progress_dialog/progress_dialog.dart';
 
 class PageUserSignUp extends StatelessWidget {
 
@@ -15,8 +16,13 @@ class PageUserSignUp extends StatelessWidget {
 
   final _firestore = Firestore.instance;
 
+  ProgressDialog progressDialog;
+
   @override
   Widget build(BuildContext context) {
+
+    progressDialog = ProgressDialog(context, type: ProgressDialogType.Normal);
+
     return MaterialApp(home: new
         Scaffold(
       appBar: AppBar(
@@ -79,6 +85,8 @@ class PageUserSignUp extends StatelessWidget {
                       print("email: " + email);
                       print("password: " + password);
 
+                      progressDialog.show();
+
                       try {
                         final newUser = await _auth.createUserWithEmailAndPassword(
                             username: username,
@@ -94,6 +102,9 @@ class PageUserSignUp extends StatelessWidget {
                         });
 
                         if(newUser != null) {
+
+                          progressDialog.hide();
+
                           Navigator.push(context,
                             MaterialPageRoute(builder: (context) => PageProfile()),
                           );
