@@ -58,7 +58,7 @@ class PageUserSignUp extends StatelessWidget {
                 ),
                 RaisedButton(
                     child: Text("ユーザー登録"),
-                    color: Colors.grey,
+                    color: Colors.blueAccent,
                     textColor: Colors.white,
                     onPressed: () async {
                       print("email: " + email);

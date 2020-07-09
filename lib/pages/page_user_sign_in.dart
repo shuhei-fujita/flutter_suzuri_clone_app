@@ -60,7 +60,7 @@ class PageUserSignIn extends StatelessWidget {
                 minWidth: 300,
                 child: RaisedButton(
                     child: Text("ログイン"),
-                    color: Colors.blue,
+                    color: Colors.blueAccent,
                     textColor: Colors.white,
                     onPressed: () async {
                       print("email: " + email);

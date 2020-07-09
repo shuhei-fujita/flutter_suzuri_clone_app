@@ -30,15 +30,18 @@ class PageProfile extends StatelessWidget {
 
     return Scaffold(
       body: Center(
-        child: RaisedButton(
-            child: Text("ログイン"),
-            color: Colors.blue,
-            textColor: Colors.white,
-            onPressed: (){
-              Navigator.push(context,
-                MaterialPageRoute(builder: (context) => PageUserSignIn()),
-              );
-            }
+        child: ButtonTheme(
+          minWidth: 300,
+          child: RaisedButton(
+              child: Text("ログイン"),
+              color: Colors.blueAccent,
+              textColor: Colors.white,
+              onPressed: (){
+                Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => PageUserSignIn()),
+                );
+              }
+          ),
         ),
       ),
     );
