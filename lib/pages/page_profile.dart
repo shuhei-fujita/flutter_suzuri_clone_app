@@ -5,15 +5,28 @@ import 'package:firebase_auth/firebase_auth.dart';
 class PageProfile extends StatelessWidget {
 
   final _auth = FirebaseAuth.instance;
+  FirebaseUser loggedInUser;
 //  String email;
 //  String password;
 
   void getCurrentUser() async {
-    final user = await _auth.currentUser();
+    try {
+      final user = await _auth.currentUser();
+
+      if(user != null) {
+        loggedInUser = user;
+        print(loggedInUser.email);
+      }
+    } catch (e) {
+      print(e);
+    }
   }
 
   @override
   Widget build(BuildContext context) {
+
+    getCurrentUser();
+
     return Scaffold(
       body: Center(
         child: RaisedButton(

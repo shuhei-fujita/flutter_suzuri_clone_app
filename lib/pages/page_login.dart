@@ -57,9 +57,9 @@ class PageLogin extends StatelessWidget {
                     print(e);
                   }
 
-                  Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => PageLogin()),
-                  );
+//                  Navigator.push(context,
+//                    MaterialPageRoute(builder: (context) => PageLogin()),
+//                  );
                 }
             ),
 //            Text("または"),
