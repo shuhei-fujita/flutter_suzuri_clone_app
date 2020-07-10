@@ -26,6 +26,11 @@ dependencies:
   flutter_dotenv: ^2.1.0
   http: ^0.12.0+4
   provider: ^4.0.5
+  firebase_core: ^0.4.5
+  firebase_auth: ^0.16.1
+  cloud_firestore: ^0.13.7
+  modal_progress_hud: ^0.1.3
+  progress_dialog: ^1.2.4
 
 dev_dependencies:
   flutter_test:
@@ -68,4 +73,4 @@ flutter:
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
   assets:
-    - .env.sample
+        - .env.sample
