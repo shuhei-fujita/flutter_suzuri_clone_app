@@ -65,6 +65,14 @@ class MyHomePage extends StatelessWidget {
           }
         },
       ),
+//      floatingActionButton: FloatingActionButton(
+//        onPressed: null,
+//        child: Icon(
+//          Icons.search,
+//          color: Colors.black,
+//        ),
+//        backgroundColor: Colors.white,
+//      ),
       bottomNavigationBar: BottomNavigationBar(
         items: [
           BottomNavigationBarItem(

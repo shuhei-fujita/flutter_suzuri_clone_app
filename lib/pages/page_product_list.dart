@@ -11,35 +11,55 @@ class PageProductList extends StatelessWidget {
     final store = Provider.of<ProductListStore>(context);
     final products = store.products;
     if (products.isEmpty) {
-      return Container(
-        child: GridView.builder(
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              crossAxisSpacing: 16,
-              mainAxisSpacing: 16,
-              childAspectRatio: 0.7,
-            ),
-            itemCount: 6,
-            itemBuilder: (context, index) {
-              return Container(
-                color: Colors.grey,
-                margin: EdgeInsets.all(16),
-              );
-            }),
+      return Scaffold(
+        body: Container(
+          child: GridView.builder(
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                crossAxisSpacing: 16,
+                mainAxisSpacing: 16,
+                childAspectRatio: 0.7,
+              ),
+              itemCount: 6,
+              itemBuilder: (context, index) {
+                return Container(
+                  color: Colors.grey,
+                  margin: EdgeInsets.all(16),
+                );
+              }),
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: null,
+          child: Icon(
+            Icons.search,
+            color: Colors.black,
+          ),
+          backgroundColor: Colors.white,
+        ),
       );
     } else {
-      return Container(
-        child: GridView.builder(
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              crossAxisSpacing: 16,
-              mainAxisSpacing: 16,
-              childAspectRatio: 0.7,
-            ),
-            itemCount: products.length,
-            itemBuilder: (context, index) {
-              return ProductCard(product: products[index]);
-            }),
+      return Scaffold(
+        body: Container(
+          child: GridView.builder(
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                crossAxisSpacing: 16,
+                mainAxisSpacing: 16,
+                childAspectRatio: 0.7,
+              ),
+              itemCount: products.length,
+              itemBuilder: (context, index) {
+                return ProductCard(product: products[index]);
+              }),
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: null,
+          child: Icon(
+            Icons.search,
+            color: Colors.black,
+          ),
+          backgroundColor: Colors.white,
+        ),
       );
     }
   }
