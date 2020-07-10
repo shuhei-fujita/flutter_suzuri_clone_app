@@ -29,7 +29,7 @@ class PageProfile extends StatelessWidget {
     getCurrentUser();
     final user = _auth.currentUser();
 
-    if(user != null) {
+    if(user == null) {
       print("ログインしていません");
       return Scaffold(
         body: Center(
@@ -52,7 +52,30 @@ class PageProfile extends StatelessWidget {
       print("ログインしています");
       return Scaffold(
         body: Center(
-          child: Text("ログインしています"),
+          child: Column(
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.fromLTRB(0, 300, 0, 100.0),
+                child: Text("ログインしています"),
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(0, 100, 0, 0),
+                child: ButtonTheme(
+                  minWidth: 300,
+                  child: RaisedButton(
+                      child: Text("ログアウト"),
+                      color: Colors.grey,
+                      textColor: Colors.white,
+                      onPressed: (){
+                        Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => PageUserSignIn()),
+                        );
+                      }
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       );
     }
