@@ -1,22 +1,17 @@
-# flutter_hands_on
-Sample Flutter Application.
+# flutter_suzuri_clone_appについて
+flutter_suzuri_clone_appは， オリジナルアイテムを手軽に作成・販売できるサービス [Suzuri](https://suzuri.jp/)のクローンアプリです．
 
-## Getting Started
+# テストユーザー
+メールアドレス：　example@gmail.com
+パスワード：　example
 
-### Clone
-```
-$ git clone git@github.com:pepabo/flutter-hands-on.git
-```
+# 技術内容
+言語：　Dart
+DB：　FireStrore
+バージョン管理：　Git
 
-### Put Your Token on `.env`
-```
-TOKEN='your_access_token'
-```
-
-You can find your token at [SUZURI Developer](https://suzuri.jp/developer/apps)
-
-### Get Dependencies and Run
-```
-$ flutter pub get
-$ flutter run
-```
+# 実装した機能の概要
+アイテム一覧表示機能
+ユーザー登録機能
+ログイン機能
+アイテム検索機能(実装中)
