@@ -51,9 +51,6 @@ class MyHomePage extends StatelessWidget {
     final store = Provider.of<TabBarStore>(context);
     final controller = PageController();
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("SUZURI"),
-      ),
       body: PageView(
         children: <Widget>[
           PageProductList(),
@@ -75,7 +72,7 @@ class MyHomePage extends StatelessWidget {
             icon: Icon(Icons.home),
           ),
           BottomNavigationBarItem(
-            title: Text('profile'),
+            title: Text('あなた'),
             icon: Icon(Icons.person),
           ),
         ],
