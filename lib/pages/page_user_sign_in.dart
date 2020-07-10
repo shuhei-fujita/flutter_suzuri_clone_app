@@ -46,7 +46,7 @@ class _PageUserSignInState extends State<PageUserSignInStateful> {
               color: Colors.black,
               onPressed: () {
                 Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => MyApp()),
+                  MaterialPageRoute(builder: (context) => PageProfile()),
                 );
               }
           ),
@@ -85,17 +85,12 @@ class _PageUserSignInState extends State<PageUserSignInStateful> {
                     onPressed: () async {
                       print("email: " + email);
                       print("password: " + password);
-
                       progressDialog.show();
-
                       try {
                         final user = await _auth.signInWithEmailAndPassword(
                             email: email, password: password);
-
                         if(user != null) {
-
                           progressDialog.hide();
-
                           Navigator.push(context,
 //                            MaterialPageRoute(builder: (context) => MyApp()),
 //                        MaterialPageRoute(builder: (context) => MyHomePage()),
