@@ -13,7 +13,6 @@ class PageUserSignUp extends StatelessWidget {
   String username;
   String email;
   String password;
-
   final _firestore = Firestore.instance;
 
   ProgressDialog progressDialog;

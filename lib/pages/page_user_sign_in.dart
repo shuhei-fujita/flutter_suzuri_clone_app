@@ -6,6 +6,20 @@ import 'package:flutter_hands_on/pages/page_user_sign_up.dart';
 import 'package:progress_dialog/progress_dialog.dart';
 
 class PageUserSignIn extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return PageUserSignInStateful();
+  }
+
+}
+
+class PageUserSignInStateful extends StatefulWidget {
+  @override
+  _PageUserSignInState createState() => new _PageUserSignInState();
+}
+
+class _PageUserSignInState extends State<PageUserSignInStateful> {
 
   final _auth = FirebaseAuth.instance;
   String email;
