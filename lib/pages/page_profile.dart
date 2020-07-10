@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hands_on/main.dart';
+import 'package:flutter_hands_on/pages/page_profile_loggedIn.dart';
 import 'package:flutter_hands_on/pages/page_user_sign_in.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -31,6 +32,7 @@ class _PageProfileState extends State {
   void getCurrentUser() async {
     try {
       final user = await _auth.currentUser();
+      print("getCurrentuser のprint");
 
       if(user != null) {
         loggedInUser = user;
@@ -54,30 +56,15 @@ class _PageProfileState extends State {
 
   @override
   Widget build(BuildContext context) {
+//    print("ログインしていません1");
 
     getCurrentUser();
 //    final user = _auth.currentUser();
+//    print("ログインしていません2");
 
     if(loggedInUser == null) {
-      print("ログインしていません");
+      print("ログインしていません4");
       return Scaffold(
-        appBar: AppBar(
-          title: const Text(
-            "ログイン",
-            style: TextStyle(color: Colors.black),
-          ),
-          backgroundColor: Colors.white,
-          leading:
-          IconButton(
-              icon: Icon(Icons.arrow_back),
-              color: Colors.black,
-              onPressed: () {
-                Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => MyApp()),
-                );
-              }
-          ),
-        ),
         body: Center(
           child: ButtonTheme(
             minWidth: 300,
@@ -95,77 +82,38 @@ class _PageProfileState extends State {
         ),
       );
     } else {
-      getUserName();
-
-      print(loggedInUser.uid + "でログインしています");
-      return Scaffold(
-        appBar: AppBar(
-          title: const Text(
-            "ログイン",
-            style: TextStyle(color: Colors.black),
-          ),
-          backgroundColor: Colors.white,
-          leading:
-          IconButton(
-              icon: Icon(Icons.arrow_back),
-              color: Colors.black,
-              onPressed: () {
-                Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => MyApp()),
-                );
-              }
-          ),
-        ),
-        body: Center(
-          child: Column(
-            children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.fromLTRB(0, 300, 0, 100.0),
-                child: Text(" ログインしています"),
-              ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(0, 100, 0, 0),
-                child: ButtonTheme(
-                  minWidth: 300,
-                  child: RaisedButton(
-                      child: Text("ログアウト"),
-                      color: Colors.grey,
-                      textColor: Colors.white,
-                      onPressed: (){
-                        signOut();
-//                        _auth.signOut();
-                        loggedInUser = null;
-//                        AppBuilder.of(context).rebuild();
-                        Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => PageProfile()),
-                        );
-                      }
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-      );
-    }
-//
-//    return Scaffold(
-//      body: Center(
-//        child: ButtonTheme(
-//          minWidth: 300,
-//          child: RaisedButton(
-//              child: Text("ログイン"),
-//              color: Colors.blueAccent,
-//              textColor: Colors.white,
-//              onPressed: (){
-//                Navigator.push(context,
-//                  MaterialPageRoute(builder: (context) => PageUserSignIn()),
-//                );
-//              }
+      print("ログインしています");
+      return PageProfileLoggedIn();
+//        Center(
+//          child: Column(
+//            children: <Widget>[
+//              Padding(
+//                padding: const EdgeInsets.fromLTRB(0, 300, 0, 100.0),
+//                child: Text(" ログインしています"),
+//              ),
+//              Padding(
+//                padding: const EdgeInsets.fromLTRB(0, 100, 0, 0),
+//                child: ButtonTheme(
+//                  minWidth: 300,
+//                  child: RaisedButton(
+//                      child: Text("ログアウト"),
+//                      color: Colors.grey,
+//                      textColor: Colors.white,
+//                      onPressed: (){
+//                        signOut();
+////                        _auth.signOut();
+//                        loggedInUser = null;
+////                        AppBuilder.of(context).rebuild();
+//                        Navigator.push(context,
+//                          MaterialPageRoute(builder: (context) => PageProfile()),
+//                        );
+//                      }
+//                  ),
+//                ),
+//              ),
+//            ],
 //          ),
 //        ),
-//      ),
-//    );
+    }
   }
 }
-

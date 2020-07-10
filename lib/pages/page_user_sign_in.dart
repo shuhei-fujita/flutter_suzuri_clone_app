@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_hands_on/main.dart';
 import 'package:flutter_hands_on/pages/page_profile.dart';
+import 'package:flutter_hands_on/pages/page_profile_loggedIn.dart';
 import 'package:flutter_hands_on/pages/page_user_sign_up.dart';
 import 'package:progress_dialog/progress_dialog.dart';
 
@@ -46,7 +47,7 @@ class _PageUserSignInState extends State<PageUserSignInStateful> {
               color: Colors.black,
               onPressed: () {
                 Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => PageProfile()),
+                  MaterialPageRoute(builder: (context) => MyApp()),
                 );
               }
           ),
@@ -87,16 +88,16 @@ class _PageUserSignInState extends State<PageUserSignInStateful> {
                       print("password: " + password);
                       progressDialog.show();
                       try {
-                        final user = await _auth.signInWithEmailAndPassword(
+                        final user = _auth.signInWithEmailAndPassword(
                             email: email, password: password);
                         if(user != null) {
-                          progressDialog.hide();
                           Navigator.push(context,
 //                            MaterialPageRoute(builder: (context) => MyApp()),
-//                        MaterialPageRoute(builder: (context) => MyHomePage()),
-                        MaterialPageRoute(builder: (context) => PageProfile()),
+//                            MaterialPageRoute(builder: (context) => MyHomePage()),
+                            MaterialPageRoute(builder: (context) => MyApp()),
                           );
                         }
+                        progressDialog.hide();
                       } catch (e) {
                         print(e);
                       }
