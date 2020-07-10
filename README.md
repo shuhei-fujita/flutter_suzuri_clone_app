@@ -8,6 +8,7 @@ flutter_suzuri_clone_appは， オリジナルアイテムを手軽に作成・�
 # 技術内容
 - 言語：　Dart
 - DB：　FireStrore
+- Auth: FirebaseAuth
 - バージョン管理：　Git
 
 # 実装した機能の概要
